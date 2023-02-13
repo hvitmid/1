@@ -1,16 +1,29 @@
 #include <locale>
 #include <stdio.h>
 #include <cmath>
+#define e 0.001
+#define pi 3.14
 
 int main()
 {
 	setlocale(LC_ALL, "RUS");
-	float a, b, y;
-	printf("Введите значения а и b через пробел\n");
-	scanf_s("%f %f", &a, &b);
-	y = (exp(-((a * a + exp(1)) / a * a * a + b)))*(1.7*a*a+b*b*b);
-	y = y / (sin(b + a * a) + cos(1.92 * b / a));
-	y = sqrt(y);
-	printf("Значение выражения равно %f\n", y);
 
+	//printf("Задание 1\n");
+	//float a, b, y;
+	//printf("Введите значения а и b через пробел\n");
+	//scanf_s("%f %f", &a, &b);
+	//y = (exp(-((a * a + exp(1)) / a*a*a + b)))*(1.7*a*a+b*b*b);
+	//y = y / (sin(b + a * a) + cos(1.92 * b / a));
+	//y = sqrt(y);
+	//printf("Значение выражения равно %f\n", y);
+
+
+
+	printf("Задание 2\n"); //вычислять пока модуль разности между послед.  и предыдущ. членами  не <= е)  razn > e;
+	double razn = 0, x = pi / 4, y1, y2;
+	for (int n = 0; razn > e; n++) {
+		y1 = (1 / (2 * n - 1)) * cos(2 * n - 1) * x;
+		y2 = (1 / (2 * (n+1) - 1)) * cos(2 * (n+1) - 1) * x;
+		razn = y2 - y1;
+	}
 }
