@@ -1,0 +1,16 @@
+#include <locale>
+#include <stdio.h>
+#include <cmath>
+
+int main()
+{
+	setlocale(LC_ALL, "RUS");
+	float a, b, y;
+	printf("Введите значения а и b через пробел\n");
+	scanf_s("%f %f", &a, &b);
+	y = (exp(-((a * a + exp(1)) / a * a * a + b)))*(1.7*a*a+b*b*b);
+	y = y / (sin(b + a * a) + cos(1.92 * b / a));
+	y = sqrt(y);
+	printf("Значение выражения равно %f\n", y);
+
+}
