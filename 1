@@ -1,0 +1,21 @@
+#include <locale.h>
+#include <stdio.h>
+#include <math.h>
+
+double Y(double, double, double);
+
+int main()
+{
+	setlocale(LC_ALL, "RUS");
+	double x,a,b;
+	printf("Введите значения а и b");
+	scanf_s("%lf %lf", &a, &b);
+	printf("Значение выражения равно %lf\n", Y(x,a,b));
+
+}
+double Y(double x, double a, double b) {
+	double y;
+	y = x + a + b;
+
+		return y;
+}
