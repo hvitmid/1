@@ -1,0 +1,189 @@
+#include<iostream>
+
+#include<stdio.h>
+
+#include<math.h>
+
+#include<iomanip>
+
+#include<ctime>
+
+using namespace std;
+
+void Sort(int* С, int);
+
+int main()
+
+{
+
+	setlocale(LC_ALL, "RUS");	int size, B[100][100], n, m, a = 0, b = 0, s = 0;
+
+	double A[100], pr = 1;
+
+	double min=0;
+
+	srand(time(NULL));
+
+	cout << "Задание 1" << endl;
+
+	cout << "Ведите размер массива" << endl;
+
+	cin >> size;
+
+	cout << "Массив заполненный случайными вещественными числами\n";
+
+	for (int i = 0; i < size; i++)
+
+	{
+
+		A[i] = -100 + (double)(200) * rand() / RAND_MAX;
+
+		cout <<"A[" << i+1 << "] = " << A[i] << endl;
+
+	}
+
+	cout << "\nСамое маленькое число: ";
+
+	for (int i = 0; i < size; i++)
+
+	{
+
+		if (A[i] <= min) min = A[i];
+
+	}
+
+	cout << min << endl;
+
+	cout << "Произведение не нулевых элементов массива равно ";
+
+	for (int i = 0; i < size; i++)
+
+	{
+
+		if (A[i] != 0) pr *= A[i];
+
+	}
+
+	cout << fixed;
+
+	cout.precision(5);
+
+	cout << pr << endl;
+
+	cout << "Положительные элементы в обратном порядке: ";
+
+	for (int i = size; i >= 0; i--)
+
+	{
+
+		if (A[i] > 0)
+
+			cout << A[i] << "; ";
+
+	}
+
+	cout << endl;
+
+	system("pause");
+
+	cout << "\nЗадание 2" << endl;
+
+	cout << "Ведите размер двумерного массива" << endl;
+
+	cin >> n >> m;
+
+	for (int i = 0; i < n; i++) {
+
+		for (int j = 0; j < m; j++) {
+
+			B[i][j] = rand()-10000;
+
+			cout << setw(10) << B[i][j];
+
+		}
+
+		cout << endl;
+
+	}
+
+	for (int i = 0; i < n; i++) {
+
+		a = b = 0;
+
+		for (int j = 0; j < m; j++) {
+
+			if (B[i][j] > 0) a++;
+
+			else b++;
+
+		}
+
+		if (a > b) s++;
+
+	}
+
+	if (s>0) cout << "Есть строка содержащая больше положительных элементов, чем отрицательных"<<endl;
+
+	else cout << "Нет строк содержащих больше положительных элементов, чем отрицательных"<<endl;
+
+	system("pause");
+
+	cout << "\nЗадание 3" << endl;
+
+	cout << "Сортировка одномерного массива мотодом простого обмена" << endl;
+
+	int c;
+
+	int* C = new int[100];
+
+	cout << "Размер массива > "; cin >> c;
+
+	for (int i = 0; i <= c; i++)
+
+	{
+
+		C[i] = rand();
+
+		cout << "C[" << i+1 << "] = " << C[i] << endl;
+
+	}
+
+	Sort(C, c); 
+
+	cout << "Упорядоченный массив: "; 
+
+	for (int i = 1; i <= c; i++) cout << C[i] << " ";
+
+	return 0;
+
+}
+
+void Sort(int* C, int c)
+
+{
+
+	for (int i = 0; i <= c; i++)
+
+	{
+
+		for (int j = 0; j <= c-1; j++)
+
+		{
+
+			if (C[j] > C[j + 1])
+
+			{
+
+				int temp =  C[j];
+
+				C[j] = C[j + 1];
+
+				C[j + 1] = temp;
+
+			}
+
+		}
+
+	}
+
+}
